@@ -47,7 +47,14 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 document.body.appendChild(renderer.domElement);
 
 
-
+window.addEventListener('resize', () => { 
+  width = window.innerWidth;
+  height = window.innerHeight;
+  renderer.setSize(width, height);
+  camera.aspect = width / height;
+  camera.updateProjectionMatrix();
+}
+)
 // animation
 
 function animate(time) {
