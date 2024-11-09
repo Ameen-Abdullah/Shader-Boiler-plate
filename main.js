@@ -28,7 +28,7 @@ camera.position.z = 1;
 
 scene = new THREE.Scene();
 
-geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+geometry = new THREE.PlaneGeometry(0.2, 0.2,10,10);
 material = new THREE.ShaderMaterial({
   vertexShader: vertex,
   fragmentShader: fragment,
@@ -55,14 +55,10 @@ window.addEventListener('resize', () => {
   camera.updateProjectionMatrix();
 }
 )
-// animation
 
 function animate(time) {
 
   material.uniforms.time.value = time / 1000;
-
-  mesh.rotation.x = time / 2000;
-  mesh.rotation.y = time / 1000;
 
   renderer.render(scene, camera);
 
